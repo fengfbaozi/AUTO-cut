@@ -1,0 +1,30 @@
+# 工程化配置文件：声明项目信息、依赖、启动命令
+# 普通用户不需要碰它；日常运行直接双击「启动工具.bat」即可。
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autocut"
+description = "自动视频切片工具（AutoCut）：基于画面运动自动删除无动作的废镜头，模仿 LosslessCut 操作逻辑"
+readme = "README.md"
+requires-python = ">=3.10"
+# 版本号从 core/__init__.py 读取，全项目只维护这一处
+dynamic = ["version"]
+dependencies = [
+    "PySide6>=6.5.0",
+    "opencv-python>=4.8.0",
+    "numpy>=1.24.0",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "core.__version__"}
+
+[project.scripts]
+# 安装后可在命令行用 `autocut` 直接启动
+autocut = "main:main"
+
+[tool.setuptools]
+# 根目录的 main.py 作为入口模块一起安装
+py-modules = ["main"]
+# 自动发现 core / ui / utils 三个子包

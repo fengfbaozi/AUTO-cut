@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 会话与临时文件
+.autocut_session.json
+autocut_thumb_*/
+autocut_test_*/
+autocut_out_*/
+
+# 日志
+*.log
+
+# 输出产物
+dist/
+build/
+
+# 大文件（视频素材不入库，测试时用命令行参数指定）
+*.mp4
+*.mov
+*.mkv
+*.avi
